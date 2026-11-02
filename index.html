@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Hafsa ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ffb6c1, #ffc3a0);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 35px 20px;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ff2865;
+            font-size: 30px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        button {
+            padding: 13px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yes {
+            background: #ff2865;
+            color: white;
+        }
+
+        #no {
+            background: #777;
+            color: white;
+        }
+
+        #result {
+            color: #ff2865;
+            font-size: 27px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -30px;
+            animation: float 6s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1>❤️ Hey Hafsa ❤️</h1>
+        <p>Do you love me? 🥺💕</p>
+
+        <button id="yes" onclick="sayYes()">YES 💖</button>
+        <button id="no" onclick="sayNo()">NO 🙈</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function sayYes() {
+            document.getElementById("result").innerHTML =
+                "I LOVE YOU HAFSA ❤️😘💕";
+        }
+
+        function sayNo() {
+            document.getElementById("result").innerHTML =
+                "Please retry until you say YES 🥺❤️";
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (15 + Math.random() * 25) + "px";
+            heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+
+</html>
